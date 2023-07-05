@@ -6,11 +6,13 @@ import {
   ExpressAdapter,
   NestExpressApplication,
 } from '@nestjs/platform-express';
-import express from 'express';
+import * as express from 'express';
 import { join } from 'path';
 
 async function bootstrap() {
+  const express1 = express();
   const app = await NestFactory.create(RootModule);
+  // app.use(express.static('views'));
   //const app = await NestFactory.create<NestExpressApplication>(module);
   // app.useStaticAssets(join(__dirname, '..', 'public'));
   // app.setBaseViewsDir(join(__dirname, '..', 'views'));
